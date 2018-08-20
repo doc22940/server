@@ -175,8 +175,23 @@ describe('reply', () => {
 
 
   describe('render', () => {
-    it('renders a demo file', async () => {
+    it.skip('has a working pug engine', async () => {
+      const mid = () => render('index.pug');
+      const res = await test({ views: 'test/views' }, mid).get('/');
+      console.log('RES:', res.body);
+      expect(res.status).toBe(200);
+      expect(res.body).toMatch(/<h1>Hello world<\/h1>/);
+    });
+
+    it('has a working hbs engine', async () => {
       const mid = () => render('index.hbs');
+      const res = await test({ views: 'test/views' }, mid).get('/');
+      expect(res.status).toBe(200);
+      expect(res.body).toMatch(/<h1>Hello world<\/h1>/);
+    });
+
+    it('renders a demo file', async () => {
+      const mid = () => render('index.html');
       const res = await test({ views: 'test/views' }, mid).get('/');
       expect(res.status).toBe(200);
       expect(res.body).toMatch(/<h1>Hello world<\/h1>/);

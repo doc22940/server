@@ -47,11 +47,6 @@ module.exports = function (grunt) {
       }
     },
 
-    jshint: {
-      options: { esversion: 6 },
-      src: ['Gruntfile.js', 'server.js', 'src']
-    },
-
     // Launch a small static server
     connect: {
       server: {
@@ -117,7 +112,6 @@ module.exports = function (grunt) {
   });
 
   grunt.loadNpmTasks('grunt-contrib-connect');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-pug');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-bytesize');

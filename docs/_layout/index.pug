@@ -22,9 +22,11 @@ html.initial
   
     block content
 
-    script(src="https://unpkg.com/paperdocs@1.0.9/paperdocs.min.js")
-    script(src="https://unpkg.com/smoothscroll-polyfill@0.4.0/dist/smoothscroll.js")
-    //- include ../assets/umbrella.js
+    script(src="https://unpkg.com/paperdocs@1.0.9/paperdocs.min.js" data-no-instant)
+    script(src="https://unpkg.com/smoothscroll-polyfill@0.4.0/dist/smoothscroll.js" data-no-instant)
+    script(src="https://unpkg.com/instantclick@3.1.0-2/dist/instantclick.min.js" data-no-instant)
+    script(data-no-instant).
+      InstantClick.init();
     script
       include ../assets/javascript.js
 

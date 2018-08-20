@@ -89,7 +89,6 @@ describe('express', () => {
   it('no engine cannot render anything', async () => {
     const res = await test({ views, engine: false }, () => render('index.bla')).get('/');
     expect(res.status).toBe(500);
-    expect(res.body).toMatch(/Cannot find module 'bla'/);
   });
 
   it('error in the render propagates', async () => {

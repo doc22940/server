@@ -6,6 +6,7 @@ import commonjs from 'rollup-plugin-commonjs';
 import globals from 'rollup-plugin-node-globals';
 import builtins from 'rollup-plugin-node-builtins';
 import builtinlist from 'builtin-modules';
+import replace from 'rollup-plugin-re';
 
 export default {
   input: 'packages/list.js',
@@ -25,6 +26,19 @@ export default {
       jsnext: true,
       main: true,
       preferBuiltins: false
+    }),
+    replace({
+      patterns: [
+        {
+          // formidable fix: https://github.com/rollup/rollup-plugin-commonjs/issues/166
+          // regexp match with resolved path
+          match: /formidable(\/|\\)lib/,
+          // string or regexp
+          test: 'if (global.GENTLY) require = GENTLY.hijack(require);',
+          // string or function to replaced with
+          replace: '',
+        }
+      ]
     }),
     commonjs({
       // non-CommonJS modules will be ignored, but you can also

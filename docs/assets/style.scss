@@ -105,12 +105,18 @@ body {
 
 
 
+
 @import 'article';
 
 .hero h1 {
   font-weight: normal;
   padding: 0;
   margin: 0;
+  line-height: 1.2;
+}
+
+.hero p {
+  margin: 0 0 5px;
 }
 
 .sub {
@@ -237,7 +243,6 @@ button.secret {
   .hero p,
   .sub {
     font-size: 1.2em;
-    margin: 5px 0;
   }
 
   button.secret {

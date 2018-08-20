@@ -1,4 +1,6 @@
-const express = require('express');
+// const express = require('express');
+const { express } = require('../../packages');
+const engines = require('./engines');
 
 // Transform a modern engine into an old one
 const modernEngine = engine => async (file, opts, cb) => {
@@ -49,7 +51,9 @@ module.exports = {
     }
 
     // Accept HTML as a render extension
-    ctx.app.engine('html', require('hbs').__express);
+    for (const key in engines) {
+      ctx.app.engine(key, modernEngine(engines[key]));
+    }
 
     // No engine, it's easy
     if (!ctx.options.engine) return;

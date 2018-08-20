@@ -1,5 +1,6 @@
 // Create a socket plugin
 const socketIO = require('socket.io');
+// const { socketIO } = require('../../packages');
 const wildcard = require('../../packages').socketioWildcard();
 
 module.exports = {

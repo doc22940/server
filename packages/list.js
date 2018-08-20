@@ -5,14 +5,14 @@ import cookieParser from 'cookie-parser';
 import csurf from 'csurf';
 import debug from 'debug';
 import dotenv from 'dotenv';
-// import express from 'express';  // Issue when importing, not when bundling
-// import expressDataParser from 'express-data-parser';
+import express from 'express';  // Issue when importing, not when bundling
+import expressDataParser from 'express-data-parser';
 import expressSession from 'express-session';
 import extend from 'extend';
-// import hbs from 'hbs';
+import handlebars from 'handlebars/lib/handlebars.js';
 import helmet from 'helmet';
 import loadware from 'loadware';
-// import log from 'log';
+import log from 'log';
 import methodOverride from 'method-override';
 import mz from 'mz';
 import pathToRegexpWrap from 'path-to-regexp-wrap';
@@ -20,8 +20,7 @@ import pkgDir from 'pkg-dir';
 // import pug from 'pug';
 import responseTime from 'response-time';
 import serveFavicon from 'serve-favicon';
-// import serveIndex from 'serve-index';
-// import socketIo from 'socket.io';
+// import socketIO from 'socket.io';
 import socketioWildcard from 'socketio-wildcard';
 
 export default {
@@ -32,14 +31,14 @@ export default {
   csurf,
   debug,
   dotenv,
-  // express,
-  // expressDataParser,
+  express,
+  expressDataParser,
   expressSession,
   extend,
-  // hbs,
+  handlebars,
   helmet,
   loadware,
-  // log,
+  log,
   methodOverride,
   mz,
   pathToRegexpWrap,
@@ -47,7 +46,6 @@ export default {
   // pug,
   responseTime,
   serveFavicon,
-  // serveIndex,
-  // socketIo,
+  // socketIO,
   socketioWildcard
 };

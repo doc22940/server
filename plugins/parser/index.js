@@ -71,7 +71,7 @@ const plugin = {
     // Data parser
     ctx => {
       if (!ctx.options.parser.data) return;
-      const data = require('express-data-parser')(ctx.options.parser.data);
+      const data = pkg.expressDataParser(ctx.options.parser.data);
       return ctx.utils.modern(data)(ctx);
     },
 
